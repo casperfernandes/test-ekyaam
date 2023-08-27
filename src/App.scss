@@ -1,0 +1,633 @@
+@mixin desktop {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+.d-none {
+  display: none;
+
+  @include desktop{
+      display: block;
+  }
+}
+
+.d-lg-none {
+  // display: block;
+
+  @include desktop{
+      display: none;
+  }
+}
+
+.semi-bold {
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.fs-13 {
+  font-size: 13px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.fs-24 {
+  font-size: 24px;
+}
+
+.mb-12 {
+  margin-bottom: 12px;
+}
+
+html, body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: -webkit-fill-available; // for safari 100vh breaks
+  background: linear-gradient(180deg, #DFDAFB 0%, #F9CCC5 100%), linear-gradient(0deg, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.50) 100%);
+  
+  @include desktop {
+    height: 100vh;
+  }
+}
+
+main {
+  padding: 16px 16px 140px 16px;
+
+  @include desktop {
+    padding-left: 90px;
+  }
+}
+
+.header-mobile {
+  @include desktop{
+      display: none;
+  }
+
+  padding: 32px 16px 12px 16px;
+  border-radius: 0 0 24px 24px;
+  background: linear-gradient(90deg, #B0A4F5 0%, #EDA197 100%); 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo-img {
+    height: 32px;
+  }
+
+  .search-img {
+    height: 20px;
+  }
+
+  .user-img {
+    height: 32px;
+    margin-left: 16px;
+  }
+}
+
+.header-desktop {
+  @include desktop {
+    padding: 12px 24px 12px 96px;
+    background: rgba(255, 255, 255, 0.50);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo-img {
+      height: 49px;
+    }
+
+    .right-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .notification {
+      position: relative;
+      
+      .count {
+        display: inline-block;
+        height: 18px;
+        width: 18px;
+        font-size: 10px;
+        background: linear-gradient(180deg, #D3004C 0%, #E10000 100%);
+        border-radius: 50%;
+        color: white;
+        text-align: center;
+        line-height: 18px;
+        position: absolute;
+        right: 3px;
+      }
+    }
+
+    .user-img {
+      margin-right: 10px;
+    }
+  }
+
+  display: none;
+}
+
+.sidebar {
+  @include desktop {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 24px;
+    border-bottom-right-radius: 24px;
+    background: linear-gradient(180deg, rgba(176, 164, 245, 0.90) 0%, rgba(237, 161, 151, 0.90) 100%);
+
+    :last-child {
+      margin-top: 50px;
+    }
+
+    img {
+      display: block;
+      height: 24px;
+      width: 24px;
+      margin-bottom: 26px;
+    }
+  }
+
+  display: none;
+}
+
+.search {
+  position: relative;
+
+  .search-input {
+    padding: 11px 16px;
+    padding-right: 35px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.80);
+    width: 380px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  img {
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    top: 16px;
+    right: 15px;
+  }
+}
+
+.top-content {
+  span {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  b {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    span {
+      display: block;
+      font-size: 13px;
+    }
+
+    b {
+      font-size: 20px;
+    }
+
+    .top-buttons {
+      display: flex;
+      gap: 12px;
+    }
+  }
+}
+
+.primary {
+  background: linear-gradient(90deg, #BBA3E4 0%, #E7A1A0 100%);
+  border: 0.50px rgba(255, 255, 255, 0.38) solid;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+
+.not-primary {
+  border: 0.50px #CC627B solid;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #CC627B;
+}
+
+.stats-parent {
+  margin-top: 12px;
+  display: grid;
+  gap: 12px;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr;
+
+  @include desktop {
+    grid-template-columns: repeat(5, 1fr); 
+  }
+  
+
+  .mobile-stat-card {
+    @include desktop {
+      display: none;
+    }
+
+    background: rgba(255, 255, 255, 0.50);
+    padding: 12px;
+    border-radius: 16px;
+    text-align: center;
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
+
+    span {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    div {
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+
+  .desktop-stat-card {
+    @include desktop {
+      display: flex;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.50);
+      padding: 12px;
+      border-radius: 16px;
+      text-align: start;
+  
+      img {
+        height: auto;
+        width: auto;
+      }
+  
+      span {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+      }
+  
+      div {
+        font-size: 36px;
+        font-weight: 600;
+      }
+    }
+
+    display: none;
+  }
+}
+
+.booking-calendar {
+  margin-top: 12px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.30);
+  border: 0.50px rgba(255, 255, 255, 0.30) solid;
+  border-radius: 16px;
+
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      margin-left: 4px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    button {
+      margin-left: 23px;
+      padding: 6px 8px;
+      font-size: 11px;
+      font-weight: 500;
+      border: 0.50px #B0A4F5 solid;
+      border-radius: 100px;
+    }
+  }
+
+  .mobile-dates {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .desktop-date {
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .grey-label {
+        padding: 6px 16px;
+        border-radius: 6px;
+        background: rgba(0, 0, 0, 0.07);
+        font-size: 12px;
+        font-weight: 500;
+        margin-left: 21px;
+      }
+
+      .session-cards {
+        display: flex;
+        gap: 12px;
+
+        .card {
+          display: flex;
+          align-items: center;
+          padding: 12px 16px;
+          border-radius: 16px;
+          background: rgba(176, 164, 245, 0.20);
+
+          div {
+            font-size: 14px;
+            font-weight: 500;
+          }
+
+          &.total {
+            background: rgba(237, 161, 151, 0.20);
+          }
+        }
+      }
+    }
+
+    display: none;
+  }
+}
+
+.calendar {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .previous {
+    height: 12px;
+    width: 12px;
+    transform: rotate(90deg);
+  }
+
+  .next {
+    height: 12px;
+    width: 12px;
+    transform: rotate(-90deg);
+  }
+
+  .days-parent {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    @include desktop {
+      width: 100%;
+    }
+
+    .day {
+      min-width: 50px;
+      padding: 12px 6px;
+      text-align: center;
+      border-radius: 8px;
+
+      .weekday {
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      .date {
+        font-size: 14px;
+        font-weight: 600;
+      }
+  
+      @include desktop {
+        min-width: auto;
+        padding: 12px 32px;
+        border-radius: 16px;
+
+        .weekday {
+          font-size: 16px;
+          font-weight: 500;
+        }
+
+        .date {
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+  
+      &.selected {
+        background: #776EA5;
+        color: white;
+      }
+    }
+  }
+
+}
+
+.patient-card {
+  margin-top: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.50);
+  border-radius: 16px;
+  position: relative;
+
+  @include desktop {
+    margin-top: 24px;
+  }
+
+  .patient-top {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .start-time {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .end-time {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .divider {
+      margin-left: 12px;
+      margin-right: 12px;
+      height: 50px;
+      border: 0.50px rgba(0, 0, 0, 0.10) solid;
+    }
+
+    .patient-name {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .previous-session {
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }
+
+  .others {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 33px;
+
+    span {
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    button {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      background: linear-gradient(90deg, #BBA3E4 0%, #E7A1A0 100%);
+      border-radius: 8px;
+    }
+  }
+
+  .photo-holder {
+    display: flex;
+
+    img {
+      height: 38px;
+      width: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 0.50px #F6FBF7 solid;
+
+      &+ img {
+        margin-left: -18px;
+      }
+    }
+  }
+}
+
+.patient-card-caret {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  transform: rotate(180deg);
+}
+
+.desktop-patient-card {
+  @include desktop() {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    .patient-details {
+      display: flex;
+      gap: 18px;
+    }
+  
+    .session-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-right: 110px;
+    }
+  }
+
+  display: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+
+  .mobile-action {
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    background: #F9CCC5 ;
+
+    button {
+      flex: 1;
+    }
+  }
+
+  .footer-inner {
+    display: flex;
+    // justify-content: space-between;
+    background: #fdf1ed;
+  }
+
+  .footer-item {
+    flex: 1 1;
+    position: relative;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      height: 40px;
+      width: 40px;
+    }
+
+    .count {
+      display: inline-block;
+      height: 18px;
+      width: 18px;
+      font-size: 10px;
+      background: linear-gradient(180deg, #D3004C 0%, #E10000 100%);
+      border-radius: 50%;
+      color: white;
+      text-align: center;
+      line-height: 18px;
+      position: absolute;
+      top: 10px;
+      right: 30px;
+    }
+
+    &.selected:after {
+      content: "";
+      height: 3px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, #BBA3E4 0%, #E7A1A0 100%);
+      border-radius: 12px;
+    }
+  }
+}
